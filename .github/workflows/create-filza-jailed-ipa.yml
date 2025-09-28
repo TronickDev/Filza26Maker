@@ -48,5 +48,5 @@ jobs:
           body: "Date: 2025-09-28-23-44"
           draft: 0
           prerelease: 0
-          tag_name: v4.0.1-2
+          tag_name: v4.0.1-4
           files: Filza-Jailed-iOS26-GeoSn0w.ipa
