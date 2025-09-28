@@ -20,11 +20,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install dependencies and prepare
-        run: |
-          sudo apt update -y && sudo apt upgrade -y
       - name: Repack IPA Script
         run: |
+          cd /
+          ls
+          cd /home/
+          ls
           cd /Users/runner/work/Filza26Maker/Filza26Maker
           sudo chmod +x filza26maker.py
           python3 filza26maker.py
