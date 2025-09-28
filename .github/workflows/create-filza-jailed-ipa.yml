@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: IPA-Repack
-          path: /Users/runner/work/Filza26Maker/Filza26Maker/Filza-Jailed-iOS26-GeoSn0w.ipa
+          path: /home/runner/work/Filza26Maker/Filza26Maker/Filza-Jailed-iOS26-GeoSn0w.ipa
   upload-release:
     needs: 
       - create-IPA-repack
