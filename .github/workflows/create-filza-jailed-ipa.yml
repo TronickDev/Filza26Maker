@@ -1,0 +1,55 @@
+# This is a basic workflow to help you get started with Actions
+
+name: create-release
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  create-IPA-repack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies and prepare
+        run: |
+          sudo apt update -y && sudo apt upgrade -y
+      - name: Repack IPA Script
+        run: |
+          cd /Users/runner/work/Filza26Maker/Filza26Maker
+          sudo chmod +x filza26maker.py
+          python3 filza26maker.py
+      - name: Upload IPA Repack file artifact to workflow
+        uses: actions/upload-artifact@v4
+        with:
+          name: IPA-Repack
+          path: /Users/runner/work/Filza26Maker/Filza26Maker/Filza-Jailed-iOS26-GeoSn0w.ipa
+  upload-release:
+    needs: 
+      - create-IPA-repack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: download results from job "create-IPA-repack"
+        uses: actions/download-artifact@v4
+        with:
+          name: IPA-Repack
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Release - Filza Jailed Repack (iOS 18 - iOS 26)"
+          body: "Date: 2025-09-28-23-44"
+          draft: 0
+          prerelease: 0
+          tag_name: v4.0.1-2
+          files: Filza-Jailed-iOS26-GeoSn0w.ipa
