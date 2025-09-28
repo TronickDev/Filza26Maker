@@ -22,11 +22,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Repack IPA Script
         run: |
-          cd /
-          ls
-          cd /home/
-          ls
-          cd /Users/runner/work/Filza26Maker/Filza26Maker
+          cd /home/runner/work/Filza26Maker/Filza26Maker
           sudo chmod +x filza26maker.py
           python3 filza26maker.py
       - name: Upload IPA Repack file artifact to workflow
