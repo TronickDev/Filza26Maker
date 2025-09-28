@@ -6,7 +6,7 @@ from zipfile import ZipFile
 from pathlib import Path
 
 # Constants
-DEB_URL = "https://tigisoftware.com/cydia/com.tigisoftware.filza_4.0.1-2_iphoneos-arm.deb"
+DEB_URL = "https://tigisoftware.com/cydia/com.tigisoftware.filza64bit_4.0.1-4_iphoneos-arm.deb"
 DEB_FILE = "filza.deb"
 WORK_DIR = "_GEO_TEMP"
 IPA_NAME = "Filza-Jailed-iOS26-GeoSn0w.ipa"
